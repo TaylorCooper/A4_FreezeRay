@@ -26,13 +26,22 @@ command, which really lengthens communication.
 
 */
 
-//#define DEBUGMODE 1
+#include <Wire.h>
+#include "Adafruit_MotorShield.h"
+#include "Adafruit_PWMServoDriver.h"
 
-#define STX			0x02
-#define ETX			0x03
-#define SYNC		0xFF
-#define SEQ			0b00000111
-//#define DEBUGMODE
+// Create the motor shield object with the default I2C address
+Adafruit_MotorShield AFMS = Adafruit_MotorShield();
+
+// Select which 'port' M1, M2, M3 or M4. In this case, M1
+Adafruit_DCMotor *fanM1 = AFMS.getMotor(1);
+Adafruit_DCMotor *pumpM3 = AFMS.getMotor(3);
+
+#define STX		0x02
+#define ETX		0x03
+#define ACK 	0x06
+#define FALSE 	0
+#define TRUE 	1
 
 // ===========
 // PUMP DATA
@@ -40,66 +49,77 @@ command, which really lengthens communication.
 
 bool cmd_pending = false;
 
-struct pump_data_t {
-  uint8_t address;
-  uint8_t sequence;
-  char *cmd;
+// A struct for all the common data
+struct arduino_t {
+  uint8_t c_fanspd;
+  uint8_t n_fanspd;
+  Adafruit_DCMotor *fanM1;
+  uint8_t c_pumpspd;
+  uint8_t n_pumpspd;
+  Adafruit_DCMotor *pumpM3;
+  unint8_t current_temp;
+  bool cmd_pending;
+  char* cmd;
   };
 
-static pump_data_t pump_data = {
-  '0', // pump 0
-  0b00110111, // sequence byte is 7, evaluates to ascii7
-  NULL, // command array is null
+static arduino_t ard= {
+  0, // current fan speed = off
+  0, // new fan speed = off
+  AFMS.getMotor(1),
+  0, // current pump speed = off
+  0, // new pump speed = off
+  AFMS.getMotor(3),
+  0xFFFFFFFF, // temperature = something impossible
+  FALSE, // no commands pending
+  NULL // command = null
   };
- 
 
 void setup(){
+	  Serial.begin(9600); // set up Serial library at 9600 bps
+	  Serial.println("Arduino communication established!");
 
-  Serial.begin(9600); //communication with computer
-  Serial1.begin(9600); //reply from the pump??
-  Serial2.begin(9600); //communication with pumps
- 
+	  AFMS.begin();  // create with the default frequency 1.6KHz
+
+	  // Fan
+	  fanM1->setSpeed(0); // Set initial speed
+	  fanM1->run(FORWARD); // Set initial direction
+	  fanM1->run(RELEASE); // Turn motor on
+
+	  // Pump
+	  pumpM3->setSpeed(0); // Set initial speed
+	  pumpM3->run(FORWARD); // Set initial direction
+	  pumpM3->run(RELEASE); // Turn motor on
 }
 
 void loop(){
 
 	delay(20);
 
-
 	if (Serial.available() >= 2){
 		
-		#ifndef DEBUGMODE
-		send_pump_cmd();
-		#endif
-		
-		#ifdef DEBUGMODE
 		get_cmd();
 		
 		if (cmd_pending){
-			send_self();
+			process_cmd();
 		}
-		
-		#endif
+
+		if(arduino.c_pumpspd != arduino.n_pumpspd){
+			set_motors(arduino.c_pumpspd, arduino.n_pumpspd, );
+		}
 
     }
-    
-	#ifndef DEBUGMODE
-	get_pump_reply();
-	#endif
 	
 }
 
 
-#ifdef DEBUGMODE
 void get_cmd(){
 	static bool seeking_sync = true;
 	static bool seeking_end = true;
-	static uint8_t checksum;
 	static uint8_t bufptr;
-	static uint8_t sequence;
 	
 	uint8_t ch;
-	char buffer[100];  //Use dynamic array later
+
+	char buffer[100];  //Lazy
 	
 	while (Serial.available()) {
 		ch = Serial.read();
@@ -109,15 +129,11 @@ void get_cmd(){
 			if (ch == STX) {
 				// Found sync byte. Wait for rest of packet.
 				seeking_sync = false;
-				checksum = STX; // STX first character gets ignored.
 				bufptr = 0;
 			}
 		} 
 		else if (seeking_end) {
 			// Reading packet.
-			
-			checksum ^= ch;
-			
 			if (ch == ETX){
 				seeking_end = false;
 				
@@ -147,7 +163,7 @@ void get_cmd(){
 						pump_data.cmd = buffer+2;
 						cmd_pending = true;
 					}
-				} else {
+				} else
 					// Repeat bit low, save values and process command
 					pump_data.address = buffer[0];
 					pump_data.sequence = sequence;
@@ -214,23 +230,23 @@ void send_self(){
 	cmd_pending = false;
 }
 
-#endif
 
 
-void send_pump_cmd(){
+void set_motors(c_spd, n_spd, motor){
+
+	int i = c_spd - n_spd;
+
+
+
+	if (c_pumpspd != n_pumpspd)
   
-	while (Serial.available() > 0){
 
-		Serial2.write(Serial.read());
-
-	}
-}
-
-void get_pump_reply(){
-  
-	while(Serial1.available() > 0){
-
-		Serial.write(Serial1.read());
-		
-	}
+	  for (i=127; i<255; i++) {
+	    myMotor->setSpeed(i);
+	    delay(50);
+	  }
+	  for (i=255; i!=127; i--) {
+	    myMotor->setSpeed(i);
+	    delay(50);
+	  }
 }

@@ -2,17 +2,16 @@
     Author:
         Taylor Cooper
     Description:
-        Load a recipe file and run basic recipes for injecting and extracting.              
+        Load and run recipes over serial interface
+        Communication with NE-500, TC-36-25_RS232, Arduino            
     Date Created:
-        Aug 20, 2014 2:16:50 PM
+        October 22, 2014 2:16:50 PM
     
     Arguments and Inputs:
         Recipe File:
-            cycles = int, number of cycles
-            dia = float, inner diameter of syringe in mm
-            cmd1 = INF,
+            ### TBD
     Outputs:
-        Serial commands to syringe pump
+        Serial commands various interface devices
     Dependencies:
         pyserial (in cmdline: pip install pyserial)
                   
@@ -26,10 +25,10 @@
 
 import serial, time, collections
 
-class syringePump():
+class spSerial():
     """
-    Description:  Loads a recipe file and sends commands to pump over serial.
-    Input: COM port, recipe file or 
+    Description:  Sends commands to pump over serial.
+    Input: COM port and recipe file
     Output: Commands to syringe pump
     """
     
@@ -58,6 +57,7 @@ class syringePump():
         time.sleep(1)
         
         # Initialize diameter
+        ### May need to initialize Baud Rate with multiple py serial instances
         self.sendPumpCmd('*RESET',delay=1) # Reset pump, wait longer
         self.sendPumpCmd('DIA'+str(self.diameter)) # Assign syringe diameter
               
@@ -83,13 +83,13 @@ class syringePump():
         """ String is written directly to serial port.
         """
         
-        # Send and recieve cmd
+        # Send and receive cmd
         cmd = s + '\x0D' # Carriage return required
         self.ser.write(cmd)
         time.sleep(delay) # Delay before syringe can respond
         r = self.readPump()
         
-        # Let the user know what happened
+        # Let the user know what happened, no error handling
         print 'SentCmd: ', s, ' ||  Received:', r
         
 
@@ -139,6 +139,62 @@ class syringePump():
         self.sendPumpCmd('DIR INF')
         self.sendPumpCmd('RUN')
 
+
+
+class tcSerial():
+    """
+    Description:
+    Input:
+    Output:
+    """
+    
+    def __init__(self, var):
+        self.var = var
+
+    def myFunc(self):
+        """
+        Description:
+        Input:
+        Output:
+        """
+        
+        print 'hey'
+      
+      
+        
+class arduinoSerial():
+    """
+    Description:
+    Input:
+    Output:
+    """
+    
+    def __init__(self, var):
+        self.var = var
+
+    def myFunc(self):
+        """
+        Description:
+        Input:
+        Output:
+        """
+        
+class controller():
+    """
+    Description:
+    Input:
+    Output:
+    """
+    
+    def __init__(self, var):
+        self.var = var
+
+    def myFunc(self):
+        """
+        Description:
+        Input:
+        Output:
+        """
 
 exampleRecipe = [
                  1, # Number of times commands are looped

@@ -1,0 +1,8 @@
+Debug log path: D:\GitHub\workspace\A4_FreezeRay\debugLog.csv
+Data log path: D:\GitHub\workspace\A4_FreezeRay\dataLog.csv
+Recipe path: D:\GitHub\workspace\A4_FreezeRay\recipe.txt
+Sent_Cmd: Q || Received: Q_0-0-255
+Sent_Cmd: F || Received: F_255
+Sent_Cmd: Q || Received: Q_255-0-255
+Sent_Cmd: P || Received: P_255
+Sent_Cmd: Q || Received: Q_255-255-255

@@ -1,0 +1,5 @@
+Duration (xxh-xxm-xxs),TC On (Y/N),SP Temp (C°),Fan Effort (%),Air Pump Effort (%),Syg Pump Vol (uL),User Resume (Y/N),
+1s,N,25,0,0,0,Y,"# This is a comment, This step will do nothing and wait for the user to resume after 30s"
+1s,Y,25,50,0,0,N,"# Enable TC control, ramp to 25C, it will move to the next block at 1.5m whether or not you are at 25C"
+1s,Y,25,50,100,0,N,# Run the air pump at 100% for 90s
+1s,Y,-10.5,100,0,20,Y,"# Ramp to -10.5C as fast as possible then hold until 1hr elapses, 100% fan effort, pump 20uL of water at start of ramp"

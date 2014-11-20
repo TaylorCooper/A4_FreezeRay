@@ -38,21 +38,35 @@ current command
 #include "Adafruit_MotorShield.h"
 #include "Adafruit_PWMServoDriver.h"
 
+// ===========
+// DEBUGGING
+// ===========
 //#define DEBUG
+#ifdef DEBUG
+#define debugPrintln(x) Serial.println(x)
+#define debugPrint(x) Serial.print(x)
+#define debugWrite(x) Serial.write(x)
+#else
+#define debugPrintln(x)  //Blank line
+#define debugPrint(x)  //Blank line
+#define debugWrite(x)  //Blank line
+#endif
 
 // ===========
 // COMMANDS AND STATIC VALUES
 // ===========
 
+#define NULL		0x00 // String end, Null
 #define STX			0x02 // Start character
 #define ETX			0x03 // End character
-#define NULL		0x00 // String end, Null
+#define ACK			0x06 // Acknowledge
 #define FALSE 		0
 #define TRUE 		1
 #define MAXSPD		255 // Max speed 255 = 100% duty cycle
 #define MINSPD		0
 #define RAMPRATE	10  // delay between PWM increments in milliseconds
 #define NUM_CMDS 	3	// Number of commands, array declared in get_cmds
+#define CMD_SIZE	10  // Max size of command in characters
 const char cmds[NUM_CMDS] = {'F','P','Q'};
 
 // ===========
@@ -70,9 +84,9 @@ struct arduino_t {
   uint8_t n_fanspd;
   uint8_t c_pumpspd;
   uint8_t n_pumpspd;
-  uint8_t c_temp;
+  int c_temp;
   bool cmd_pending;
-  char *cmd;
+  char cmd[CMD_SIZE];
   };
 
 static arduino_t ard= {
@@ -80,9 +94,9 @@ static arduino_t ard= {
   0, // new fan speed = off
   0, // current pump speed = off
   0, // new pump speed = off
-  0xFFFFFFFF, // temperature = something impossible
+  -30000, // temperature = something impossible
   FALSE, // no commands pending
-  NULL // since we have no commands yet
+  {0} // buffer for commands
   };
 
 void setup(){
@@ -102,12 +116,6 @@ void setup(){
 	  pumpM3->run(RELEASE); // Turn motor on
 }
 
-//###
-#ifdef DEBUG
-#define debugPrint(x) Serial.println((x));
-#else
-#define debugPrint(x)
-#endif
 
 void loop(){
 
@@ -115,27 +123,17 @@ void loop(){
 
 	// Check serial buffer if no unprocessed commands
 	if (Serial.available() >= 2 && !ard.cmd_pending){
-
-		//debugPrint("com");
-
-		#ifdef DEBUG
-		Serial.println("Command received!");
-		#endif
-
-
-
+		debugPrintln("Command received!");
 		get_cmd();
     }
 
 	// Process command if received
 	if ( ard.cmd_pending ){
 
-		#ifdef DEBUG
-		Serial.print("Command processing: ");
-		Serial.write(ard.cmd[0]);
-		Serial.print(&ard.cmd[1]);
-		Serial.println(' ');
-		#endif
+		debugPrint("Command processing: ");
+		debugWrite(ard.cmd[0]);
+		debugPrint(&ard.cmd[1]);
+		debugPrintln(' ');
 
 		process_cmd();
 	}
@@ -154,10 +152,8 @@ void get_cmd(){
 	static uint8_t i;
 
 	uint8_t ch;
-	char buffer[100];  // Should be global###  releases stack and can be overwritten at end of function
-	memset(buffer, 0x00, sizeof(buffer)); // Probably not needed###
-
-	// Read about serial.read().... ###
+	//memset(buffer, 0x00, sizeof(buffer)); // Probably not needed
+	// Read about serial.read()....
 	
 	while (Serial.available()) {
 		ch = Serial.read();
@@ -176,29 +172,30 @@ void get_cmd(){
 				seeking_end = FALSE;
 			}
 			else {
-				buffer[i] = ch;
+				ard.cmd[i] = ch;
 				i++;
 			}
-		} else
+		}
 
 	}//While Serial.available()
 
-	#ifdef DEBUG
-	Serial.print("Buffer=");
-	Serial.write(buffer[0]);
-	Serial.write(buffer[1]);
-	Serial.println(' ');
-	#endif
-
-	// Check crudely if command is valid, if ETX found
+	// Check crudely if command is valid, once ETX found
 	if ( !seeking_end ){
 		for (int j = 0; j < NUM_CMDS; j++){
-			if ( buffer[0] == cmds[j] ){
-				ard.cmd = buffer;
+			if ( ard.cmd[0] == cmds[j] ){
 				ard.cmd_pending = TRUE;
 			}
 		}
 	}
+
+	debugPrint("ard.cmd=");
+	debugWrite(ard.cmd[0]);
+	debugWrite(ard.cmd[1]);
+	debugPrint(':');
+	debugPrint(ard.cmd_pending);
+	debugPrint(':');
+	debugPrint(seeking_end);
+	debugPrintln(' ');
 
 	// Reset and return
 	seeking_sync = TRUE;
@@ -208,7 +205,7 @@ void get_cmd(){
 
 void process_cmd(){
 	/*
-	 * Reply syntax: <STX> <CMD CHAR> <DATA1,DATA2,DATA3,etc.> <ETX>
+	 * Reply syntax: <STX> <CMD CHAR> <DATA1,DATA2,DATA3,etc.> <ACK>
 	 */
 
 	uint8_t spd;
@@ -235,17 +232,16 @@ void process_cmd(){
 
 		// Adjust fan set point if required
 		if( ard.c_fanspd != ard.n_fanspd ){
+
+			debugPrint("Fan C_N:");
+			debugPrint(ard.c_fanspd);
+			debugPrint('_');
+			debugPrint(ard.n_fanspd);
+			debugPrint(' ');
+
 			set_motors( ard.c_fanspd, ard.n_fanspd, fanM1 );
 			ard.c_fanspd = ard.n_fanspd;
 			ard.cmd_pending = FALSE;
-
-			#ifdef DEBUG
-			Serial.print("Fan set point changed!");
-			Serial.print(ard.c_fanspd);
-			Serial.print('_');
-			Serial.print(ard.n_fanspd);
-			Serial.println(' ');
-			#endif
 		}
 
 		break;
@@ -265,17 +261,16 @@ void process_cmd(){
 
 		// Adjust pump set point if  required
 		if( ard.c_pumpspd != ard.n_pumpspd ){
+
+			debugPrint("Pump C_N:");
+			debugPrint(ard.c_pumpspd);
+			debugPrint('_');
+			debugPrint(ard.n_pumpspd);
+			debugPrint(' ');
+
 			set_motors( ard.c_pumpspd, ard.n_pumpspd, pumpM3 );
 			ard.c_pumpspd = ard.n_pumpspd;
 			ard.cmd_pending = FALSE;
-
-			#ifdef DEBUG
-			Serial.print("Pump set point changed!");
-			Serial.print(ard.c_pumpspd);
-			Serial.print('_');
-			Serial.print(ard.n_pumpspd);
-			Serial.println(' ');
-			#endif
 		}
 
 		break;
@@ -289,7 +284,7 @@ void process_cmd(){
 		Serial.print( ard.c_temp );
 	}
 
-	Serial.write(ETX);
+	Serial.write(ACK);
 
 	ard.cmd_pending = FALSE;
 }
@@ -302,7 +297,7 @@ void set_motors(uint8_t c_spd,uint8_t n_spd, Adafruit_DCMotor *motor){
 	motor->run(FORWARD);  // Breaks without this
 
 	if ( n_spd > c_spd ){  // Ramp up
-		for (int i=0; i<255; i++) {
+		for (int i=c_spd; i<n_spd; i++) {
 			motor->setSpeed(i);
 			delay(RAMPRATE);
 		}
@@ -312,13 +307,14 @@ void set_motors(uint8_t c_spd,uint8_t n_spd, Adafruit_DCMotor *motor){
 			motor->setSpeed(i);
 			delay(RAMPRATE);
 		}
+	} else {
+		return;
 	}
-	// ### deal with == case
 }
 
 void get_temperature(){
 	/*
-	 * ### Underconstruction
+	 * ### Under construction
 	 */
-	ard.c_temp = 0xFFFFFFFF;
+	ard.c_temp = -30000;
 }

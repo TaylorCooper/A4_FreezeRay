@@ -1,13 +1,11 @@
 /*
-Created By: Andre Wild
-Created On: 2010.05.01
+Created By: Taylor Cooper
+Created On: 2014.10.20
 
 Last Modified By: Taylor Cooper
-Last Modified: 2014.05.01
+Last Modified: 2014.11.21
 
-Board: Arduino Mega ATmega128
-Typical COM port: /dev/ttyUSB0
-
+Board: Arduino Mega 2560 R3
 
 Functionality:
 
@@ -56,9 +54,10 @@ current command
 // COMMANDS AND STATIC VALUES
 // ===========
 
+#define NULL		0x00 // String end, Null
 #define STX			0x02 // Start character
 #define ETX			0x03 // End character
-#define NULL		0x00 // String end, Null
+#define ACK			0x06 // Acknowledge
 #define FALSE 		0
 #define TRUE 		1
 #define MAXSPD		255 // Max speed 255 = 100% duty cycle
@@ -204,7 +203,7 @@ void get_cmd(){
 
 void process_cmd(){
 	/*
-	 * Reply syntax: <STX> <CMD CHAR> <DATA1,DATA2,DATA3,etc.> <ETX>
+	 * Reply syntax: <STX> <CMD CHAR> <DATA1,DATA2,DATA3,etc.> <ACK>
 	 */
 
 	uint8_t spd;
@@ -283,7 +282,7 @@ void process_cmd(){
 		Serial.print( ard.c_temp );
 	}
 
-	Serial.write(ETX);
+	Serial.write(ACK);
 
 	ard.cmd_pending = FALSE;
 }
@@ -317,4 +316,3 @@ void get_temperature(){
 	 */
 	ard.c_temp = -30000;
 }
-

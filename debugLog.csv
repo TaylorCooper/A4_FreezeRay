@@ -1,21 +1,350 @@
+NE-500 Syringe pump communication established!
+spSerial:: Sent_Cmd: *RESET ||  Received:00S
+spSerial:: Sent_Cmd: DIA7.0 ||  Received:00S
+TC-36-25_RS232 Temperature controller communication established!
+Arduino communication established!{{
+Estimated pre-scale: 3.24{{
+Final pre-scale: 3{{
+
 Debug log path: D:\GitHub\workspace\A4_FreezeRay\debugLog.csv
 Data log path: D:\GitHub\workspace\A4_FreezeRay\dataLog.csv
-Recipe path: D:\GitHub\workspace\A4_FreezeRay\recipe.txt
-arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
-arduinoSerial:: Sent_Cmd: F || Received: F_255
-arduinoSerial:: Sent_Cmd: Q || Received: Q_255:0:-30000
-arduinoSerial:: Sent_Cmd: P || Received: P_255
-arduinoSerial:: Sent_Cmd: Q || Received: Q_255:255:-30000
-arduinoSerial:: Sent_Cmd: F || Received: No reply!
-arduinoSerial:: Sent_Cmd: F || Received: No reply!
-arduinoSerial:: Sent_Cmd: F || Received: No reply!
-arduinoSerial:: Sent_Cmd: F || Received: No reply!
-arduinoSerial:: Sent_Cmd: F || Received: F_128
-arduinoSerial:: Sent_Cmd: Q || Received: Q_128:255:-30000
-arduinoSerial:: Sent_Cmd: P || Received: No reply!
-arduinoSerial:: Sent_Cmd: P || Received: P_128
-arduinoSerial:: Sent_Cmd: Q || Received: Q_128:128:-30000
-arduinoSerial:: Sent_Cmd: F || Received: F_0
-arduinoSerial:: Sent_Cmd: Q || Received: Q_0:128:-30000
+Recipe path: D:\GitHub\workspace\A4_FreezeRay\recipe.csv
 arduinoSerial:: Sent_Cmd: P || Received: P_0
+arduinoSerial:: Sent_Cmd: F || Received: F_0
+tcSerial:: Sent_Cmd: 001c000009c4 ||  Received:000009c4c0
+tcSerial:: Sent_Cmd: 002d00000000 ||  Received:0000000080
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000d9bef
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:000009c4c0
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095593
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:0000000080
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
 arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00SI0.000W0.000UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000d9ef2
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:000009c4c0
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095593
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:0000000080
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00SI0.000W0.000UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000d9ef2
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:000009c4c0
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095694
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:0000000080
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00SI0.000W0.000UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000d9df1
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:000009c4c0
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095694
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:0000000080
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00SI0.000W0.000UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000d9cf0
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:000009c4c0
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095694
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:0000000080
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00SI0.000W0.000UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000d9df1
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:000009c4c0
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095694
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:0000000080
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00SI0.000W0.000UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000d9ef2
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:000009c4c0
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095694
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:0000000080
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00SI0.000W0.000UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000d9ef2
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:000009c4c0
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095694
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:0000000080
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00SI0.000W0.000UL
+arduinoSerial:: Sent_Cmd: P No reply!
+arduinoSerial:: Sent_Cmd: P No reply!
+arduinoSerial:: Sent_Cmd: P || Received: P_127
+arduinoSerial:: Sent_Cmd: F || Received: F_127
+tcSerial:: Sent_Cmd: 001c00000bb8 ||  Received:No reply!
+tcSerial:: Sent_Cmd: 001c00000bb8 ||  Received:00000bb8ec
+tcSerial:: Sent_Cmd: 002d00000064 ||  Received:000000648a
+spSerial:: Sent_Cmd: DIR INF ||  Received:00S
+spSerial:: Sent_Cmd: RAT 1900 UM ||  Received:00S
+spSerial:: Sent_Cmd: VOL 500 ||  Received:00S
+spSerial:: Sent_Cmd: RUN ||  Received:00I
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da1e6
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:00000bb8ec
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095997
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000000afe7
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_127:127:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00II13.64W0.000UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da2e7
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:No reply!
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:00000bb8ec
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:No reply!
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095997
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:No reply!
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000001f4bb
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:No reply!
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_127:127:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00II67.59W0.000UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da2e7
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:00000bb8ec
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095997
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000001f4bb
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_127:127:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00II115.4W0.000UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da3e8
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:No reply!
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:00000bb8ec
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095997
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000001f5bc
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_127:127:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00II164.9W0.000UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da3e8
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:00000bb8ec
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095abf
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000001f5bc
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_127:127:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00II212.8W0.000UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da3e8
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:00000bb8ec
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095bc0
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000001f5bc
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_127:127:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00II260.7W0.000UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da3e8
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:00000bb8ec
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095cc1
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000001f5bc
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:No reply!
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_127:127:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00II310.2W0.000UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da3e8
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:00000bb8ec
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095cc1
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000001f5bc
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_127:127:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00II358.2W0.000UL
+arduinoSerial:: Sent_Cmd: P || Received: P_0
+arduinoSerial:: Sent_Cmd: F || Received: F_0
+tcSerial:: Sent_Cmd: 001cfffffbe5 ||  Received:No reply!
+tcSerial:: Sent_Cmd: 001cfffffbe5 ||  Received:fffffbe5fa
+tcSerial:: Sent_Cmd: 002d00000064 ||  Received:000000648a
+spSerial:: Sent_Cmd: DIR WDR ||  Received:00S
+spSerial:: Sent_Cmd: RAT 1900 UM ||  Received:00S
+spSerial:: Sent_Cmd: VOL 500 ||  Received:00S
+spSerial:: Sent_Cmd: RUN ||  Received:00W
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da4e9
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:fffffbe5fa
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095cc1
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000001ffed
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00WI500.0W13.64UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da5ea
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:fffffbe5fa
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095cc1
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000001ffed
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00WI500.0W61.48UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da6eb
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:fffffbe5fa
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095cc1
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000001ffed
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:No reply!
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00WI500.0W110.9UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da7ec
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:fffffbe5fa
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095cc1
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000001ffed
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00WI500.0W158.8UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da7ec
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:fffffbe5fa
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095dc2
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000001ffed
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00WI500.0W206.6UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da7ec
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:fffffbe5fa
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:No reply!
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095dc2
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:No reply!
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000001ffed
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:No reply!
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00WI500.0W259.1UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da7ec
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:fffffbe5fa
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095dc2
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000001ffed
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00WI500.0W307.1UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da5ea
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:fffffbe5fa
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095dc2
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000001ffed
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q No reply!
+arduinoSerial:: Sent_Cmd: Q No reply!
+arduinoSerial:: Sent_Cmd: Q No reply!
+arduinoSerial:: Sent_Cmd: Q No reply!
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00WI500.0W380.4UL
+arduinoSerial:: Sent_Cmd: P || Received: P_0
+arduinoSerial:: Sent_Cmd: F || Received: F_0
+tcSerial:: Sent_Cmd: 001cfffffbe5 ||  Received:fffffbe5fa
+tcSerial:: Sent_Cmd: 002d00000064 ||  Received:000000648a
+spSerial:: Sent_Cmd: DIR WDR ||  Received:00S
+spSerial:: Sent_Cmd: RAT 1900 UM ||  Received:00S
+spSerial:: Sent_Cmd: VOL 500 ||  Received:00S
+spSerial:: Sent_Cmd: RUN ||  Received:00W
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da4e9
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:fffffbe5fa
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095dc2
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000001ffed
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00WI500.0W513.6UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da4e9
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:fffffbe5fa
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095dc2
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000001ffed
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00WI500.0W561.5UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da5ea
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:fffffbe5fa
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095dc2
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000001ffed
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00WI500.0W609.2UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da5ea
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:fffffbe5fa
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095dc2
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000001ffed
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00WI500.0W657.1UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da7ec
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:fffffbe5fa
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095dc2
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000001ffed
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00WI500.0W704.9UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da7ec
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:fffffbe5fa
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095dc2
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000001ffed
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00WI500.0W752.7UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da8ed
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:fffffbe5fa
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095dc2
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000001ffed
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00WI500.0W800.6UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da9ee
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:fffffbe5fa
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095dc2
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:000001ffed
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00WI500.0W848.7UL
+arduinoSerial:: Sent_Cmd: P || Received: P_0
+arduinoSerial:: Sent_Cmd: F || Received: F_0
+tcSerial:: Sent_Cmd: 001c000009c4 ||  Received:No reply!
+tcSerial:: Sent_Cmd: 001c000009c4 ||  Received:000009c4c0
+tcSerial:: Sent_Cmd: 002d00000000 ||  Received:0000000080
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da2e7
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:000009c4c0
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095cc1
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:0000000080
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00SI500.0W1000.UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da0e5
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:000009c4c0
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095cc1
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:0000000080
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00SI500.0W1000.UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000d9ff3
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:000009c4c0
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095cc1
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:0000000080
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00SI500.0W1000.UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da0e5
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:000009c4c0
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095cc1
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:0000000080
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00SI500.0W1000.UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da2e7
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:000009c4c0
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095cc1
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:0000000080
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00SI500.0W1000.UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da2e7
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:000009c4c0
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095cc1
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:0000000080
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00SI500.0W1000.UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000da1e6
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:000009c4c0
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095bc0
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:0000000080
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00SI500.0W1000.UL
+tcSerial:: Sent_Cmd: 000100000000 ||  Received:00000d9ff3
+tcSerial:: Sent_Cmd: 000300000000 ||  Received:000009c4c0
+tcSerial:: Sent_Cmd: 000600000000 ||  Received:0000095bc0
+tcSerial:: Sent_Cmd: 000400000000 ||  Received:0000000080
+tcSerial:: Sent_Cmd: 000500000000 ||  Received:0000000080
+arduinoSerial:: Sent_Cmd: Q || Received: Q_0:0:-30000
+spSerial:: Sent_Cmd: DIS ||  Received:00SI500.0W1000.UL
+spSerial:: Sent_Cmd: STP ||  Received:00S?NA
+spSerial:: Signing Off!
+tcSerial:: Sent_Cmd: 002d00000000 ||  Received:0000000080
+tcSerial:: Signing Off!
+arduinoSerial:: Sent_Cmd: F || Received: F_0
+arduinoSerial:: Sent_Cmd: P || Received: P_0
+arduinoSerial:: Signing Off!
+controller:: Signing Off!

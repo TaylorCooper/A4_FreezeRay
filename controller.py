@@ -6,22 +6,14 @@
         Communication with NE-500, TC-36-25_RS232, Arduino            
     Date Created:
         October 22, 2014 2:16:50 PM
-    
-    ###TODO:
-        SygPump
-            Remove recipe functionality
-        Arduino interface
-        TC interface
-        Controller / loop interface
-            Recipe file definition
-    
+        
     Arguments and Inputs:
-        Recipe File:
-            ### TBD
+        Recipe File
+        Debug File
+        Datalog File
     Outputs:
-        Serial commands various interface devices
-    Dependencies:
-        pyserial (in cmdline: pip install pyserial)
+        Serial commands to syringe pump, temp controller and arduino
+        Debug and datalog files populated
                   
     History:                  
     --------------------------------------------------------------
@@ -33,7 +25,28 @@
 
 import serial, time, collections, csv, msvcrt
 
+# DEBUG MODE FROM ARDUINO
 DEBUG = False
+
+# Serial communication parameters, based on test run of 1000 logs
+SP_DELAY=0.05 
+TC_DELAY=0.05
+ARD_DELAY_CMD=3 ### Something should be done about this...
+ARD_DELAY_QRY=0.2
+SP_RETRIES=10
+TC_RETRIES=10
+ARD_RETRIES=20
+
+# Logging files and recipe
+dbLP = "D:\\GitHub\\workspace\\A4_FreezeRay\\debugLog"
+dtLP = "D:\\GitHub\\workspace\\A4_FreezeRay\\dataLog"
+recipe = "D:\\GitHub\\workspace\\A4_FreezeRay\\recipe.csv"
+LOG_RATE = 1 # Log data every X seconds by default
+    
+# SygPump, TC, Arduino (4 = COM5 in Windows)
+# e.g. (None,None,'COM6') tries to open communication with Arduino on COM6 
+# ports = (None,None,'COM6')
+ports = ('COM5','COM7','COM6')
 
 class spSerial():
     """
@@ -42,7 +55,7 @@ class spSerial():
     Output: Commands to syringe pump
     """
     
-    def __init__(self, port, debugLogFile):
+    def __init__(self, port, debugLogFile, diameter=7.0):
         """ Initialize syringe pump communication
         """
         
@@ -51,21 +64,32 @@ class spSerial():
         self.dbF = debugLogFile
 
         # Open port, nominal baudrate = 19200, TC required 9600 though
-        ### May need to initialize Baud Rate with multiple py serial instances
+        # To change pump baud rate run "*ADR 0 B 9600" in Arduino serial 
+        # monitor. This change will last through reset.
         self.ser = serial.Serial(self.port, baudrate=9600, timeout=1)
         time.sleep(1) # Give serial port time to set up
         
+        beginMsg = 'NE-500 Syringe pump communication established!'
+        print beginMsg
+        self.dbF.writerow([beginMsg])
+        
         # Initialize diameter
         self.send('*RESET',delay=1) # Reset pump, wait longer
-        self.send('DIA'+str(self.diameter)) # Assign syringe diameter
+        self.send('DIA'+str(diameter)) # Assign syringe diameter
 
 
     def closeSer(self):
         """ Close serial port when done.
         """
         
+        # Stop pumping
         self.send('STP') # Stop the pump
-        self.dbF.writerow(['spSerial:: Signing Off!'])
+        
+        # Say good bye
+        endMsg = 'spSerial:: Signing Off!'
+        if DEBUG: print endMsg
+        self.dbF.writerow([endMsg])    
+        
         self.ser.close()
 
 
@@ -86,19 +110,38 @@ class spSerial():
         return s
     
 
-    def send(self, s, delay=0.2):
+    def send(self, s, delay = SP_DELAY, retries=SP_RETRIES):
         """ String is written directly to serial port.
         """
         
         # Send and receive cmd
         cmd = s + '\x0D' # Carriage return required
-        self.ser.write(cmd)
-        time.sleep(delay) # Delay in seconds before response
-        r = self.read()
+        spMsg = 'spSerial:: Sent_Cmd: ' + s + ' ||  Received:'
+        
+        for i in range(retries):
+            self.ser.write(cmd)
+            time.sleep(delay) # Delay in seconds before response
+            
+            r = self.read()
+            
+            if not r: # Basically just check if you get a reply
+                self.dbF.writerow([self.spMsg+'Sent invalid checksum!'])
+                if DEBUG: print self.spMsg+'Sent invalid checksum!'
+                continue
+            
+            if r[-1] != '\x03': # Make sure message finished
+                self.dbF.writerow([self.spMsg+'Did not receive ETX!'])
+                if DEBUG: print self.spMsg+'Did not receive ETX!'
+                continue
+            else:
+                break
         
         # Let the user know what happened, no error handling
-        row = 'spSerial:: Sent_Cmd: ', s, ' ||  Received:', r
-        self.dbF.writerow(row)
+        row = spMsg + r
+        self.dbF.writerow([row])
+        if DEBUG: print row
+        
+        return r
     
     
     def basicCommand(self, vol, rate=1000):
@@ -109,7 +152,9 @@ class spSerial():
         interrupt the previous command.
         """
         
-        if vol < 0: # With draw
+        if vol == 0: # Do nothing
+            return 
+        elif vol < 0: # Withdraw
             self.send('DIR WDR')
             vol = abs(vol)
         else:
@@ -119,6 +164,19 @@ class spSerial():
         self.send('VOL '+ str(vol))
         self.send('RUN')
 
+    def dispensed(self):
+        """ Input: nothing
+        Output: infused vol, withdrawn vol, units
+        """
+        
+        r = self.send('DIS')
+        
+        init = r.split('I')[-1:][0].split('W')
+        I = init[0]
+        W = init[-1:][0][:5]
+        units = init[-1:][0][5:7]
+                
+        return float(I),float(W),units
 
 class tcSerial():
     """
@@ -142,6 +200,11 @@ class tcSerial():
         # Open port
         self.ser = serial.Serial(self.port, baudrate=9600, timeout=1)
         time.sleep(1) # Give serial port time to set up
+        
+        beginMsg = 'TC-36-25_RS232 Temperature controller'
+        beginMsg = beginMsg + ' communication established!'
+        print beginMsg
+        self.dbF.writerow([beginMsg])
 
 
     def closeSer(self):
@@ -149,8 +212,13 @@ class tcSerial():
         """
         
         # Send commands to turn off TC
-        self.send('2d', data=self.tcformatData(0)) # Turn off TC        
-        self.dbF.writerow(['tcSerial:: Signing Off!'])         
+        self.send('2d', data=self.formatData(0)) # Turn off TC  
+        
+        # Say good bye
+        endMsg = 'tcSerial:: Signing Off!'
+        if DEBUG: print endMsg
+        self.dbF.writerow([endMsg])       
+        
         self.ser.close()
         
         
@@ -165,16 +233,29 @@ class tcSerial():
         
         bits = 32 # Required for this protocol
         temp = int(temp*100) # Multiply by 100 to preserve decimal places
-            
-        if temp < 0:  # 2's complement for negatives
+        
+        if temp == 0:
+            r ='0x00000000'
+        elif temp < 0:  # 2's complement for negatives
             temp = 2**bits + temp
             r = hex(temp)[:-1] # Remove trailing L for Long
         else:
             temph = hex(temp)
             r = '0x'+'0'*(10-len(temph)) + temph[2:]
             
-        return r
+        return r[2:]
 
+        
+    def formatResponse(self, r):
+        """ Format data from TC reply into 2 decimal floats
+        """
+        
+        # Convert from hex and get decimal
+        r = int(r[:-2],16)/100.0
+        # If negative convert 2's complement
+        if r > 1000: r = (r*100 - 2**32)/100.0
+        return round(r,2)
+    
     
     def getChecksum(self, s):
         """Get the 8bit (modulo 256) checksum of characters in s
@@ -200,7 +281,7 @@ class tcSerial():
         # Read serial into buffer and then pop out to s for return
         while self.ser.inWaiting() > 0:
             ch = self.ser.read(1) #Read 1 BYTE
-    
+
             if seeking_sync:
                 if ch == self.stx: # <STX>
                     seeking_sync = False
@@ -210,7 +291,8 @@ class tcSerial():
                     seeking_end = False
                 else:
                     buf.append(ch)
-                    
+        
+               
         if not buf: # No reply received
             return False
         elif buf[-1] != self.ack: # Check for ACK character
@@ -219,31 +301,45 @@ class tcSerial():
             return ''.join(buf[:-1])
     
 
-    def send(self, cmd, data='00000000', delay=0.4, retries=10):
+    def send(self, cmd, data='00000000', delay=TC_DELAY, retries=TC_RETRIES):
         """ String is written directly to serial port.
         00000000 = null data for TC expects for commands without data
-        0.4s delay is the expected delay before a reply
+        1ms delay is the expected delay before a reply
         """
         
         cmd = self.adr + cmd + data
         s = self.stx + cmd + self.getChecksum(cmd) + self.etx
+        tcMsg = 'tcSerial:: Sent_Cmd: ' + cmd + ' ||  Received:'
                 
         for i in range(retries):
             self.ser.write(s)
             
             reply = self.read(delay)
-            
+                        
             # If no reply re-send command
             if not reply:
+                self.dbF.writerow([tcMsg+'No reply!'])
+                if DEBUG: print tcMsg+'No reply!'
+                continue
+            
+            # If my checksum failed TC replies XXXXXXXXc0, so try again
+            if 'X' in reply:
+                self.dbF.writerow([tcMsg+'Sent invalid checksum!'])
+                if DEBUG: print tcMsg+'Sent invalid checksum!'
                 continue
             
             # If checksum invalid re-send command
             if self.getChecksum(reply[:-2]) != reply[-2:]:
+                self.dbF.writerow([tcMsg+'Received invalid checksum!'])
+                if DEBUG: print tcMsg+'Received invalid checksum!'
                 continue
-    
+            else:
+                break
+
         # Let the user know what happened, no error handling
-        row = 'tcSerial:: Sent_Cmd: ', cmd, ' ||  Received:', reply
-        self.dbF.writerow(row)
+        row = tcMsg + reply
+        if DEBUG: print row
+        self.dbF.writerow([row])
         
         return reply
       
@@ -261,32 +357,36 @@ class arduinoSerial():
         
         self.port = port
         self.dbF = debugLogFile
-        self.debugRow = ''
+        debugRow = ''
         buf = []
 
         # Open port, nominal baudrate = 19200, TC required 9600 though
         self.ser = serial.Serial(self.port, baudrate=9600, timeout=1)
         time.sleep(1) # Give serial port time to set up
         
+        # Clearing serial buffer
         while self.ser.inWaiting() > 0:
             ch = self.ser.read(1) #Read 1 BYTE
             buf.append(ch)
-        self.debugRow = ''.join(buf) 
-        print self.debugRow
-        self.dbF.writerow([self.debugRow])        
+        debugRow = ''.join(buf) 
+        print debugRow
+        self.dbF.writerow([debugRow])        
         
     def closeSer(self):
         """ Close serial port when done.
         """      
         
         # Send commands to turn off the Arduino
-        self.ard.send('F',data=[str(0)], delay=2) # Turn off fan
-        self.ard.send('P',data=[str(0)], delay=2) # Turn off pump
-        self.dbF.writerow(['arduinoSerial:: Signing Off!'])  
+        self.send('F',data=[str(0)], delay=ARD_DELAY_CMD) # Turn off fan
+        self.send('P',data=[str(0)], delay=ARD_DELAY_CMD) # Turn off pump
+        
+        endMsg = 'arduinoSerial:: Signing Off!'
+        if DEBUG: print endMsg
+        self.dbF.writerow([endMsg])  
         self.ser.close()
     
 
-    def read(self, delay):
+    def read(self, delay, cmd):
         """ Read chars from the serial port buffer well it is not empty.
         Reply syntax: <STX> <CMD CHAR> <DATA1,DATA2,DATA3,etc.> <ACK>
         """
@@ -295,37 +395,31 @@ class arduinoSerial():
         seeking_sync = True;
         seeking_end = True;
 
-        if DEBUG:
-            time.sleep(delay)
-            while self.ser.inWaiting() > 0:
-                ch = self.ser.read(1) #Read 1 BYTE
-                buf.append(ch)
-            print 'Received: ', ''.join(buf)
-        else:
-            time.sleep(delay)
-            # Read serial into buffer and then pop out to s for return
-            while self.ser.inWaiting() > 0:
-                ch = self.ser.read(1) #Read 1 BYTE
-                
-                if seeking_sync:
-                    if ch == chr(2): # <STX>
-                        seeking_sync = False
-                elif seeking_end:
-                    if ch == chr(6): # <ACK>
-                        buf.append(chr(6))
-                        seeking_end = False
-                    else:
-                        buf.append(ch)
+        time.sleep(delay)
+        # Read serial into buffer and then pop out to s for return
+        while self.ser.inWaiting() > 0:
+            ch = self.ser.read(1) #Read 1 BYTE
+            
+            if seeking_sync:
+                if ch == chr(2): # <STX>
+                    seeking_sync = False
+            elif seeking_end:
+                if ch == chr(6): # <ACK>
+                    buf.append(chr(6))
+                    seeking_end = False
+                else:
+                    buf.append(ch)
         
+        ### These checks should be moved to send like the other serial classes
         if not buf: # No reply received
-            self.debugRow = self.debugRow + 'No reply!'
-            self.dbF.writerow([self.debugRow])
-            print self.debugRow
+            debugRow = 'arduinoSerial:: Sent_Cmd: ' + cmd + ' No reply!'
+            self.dbF.writerow([debugRow])
+            if DEBUG: print debugRow
             return False
         elif buf[-1] != chr(6): # Check for ACK character
-            self.debugRow = self.debugRow + 'ACK not found!'
-            self.dbF.writerow([self.debugRow])
-            print self.debugRow
+            debugRow = 'arduinoSerial:: Sent_Cmd: ' + cmd + ' ACK not found!'
+            self.dbF.writerow([debugRow])
+            if DEBUG: print debugRow
             return False 
         else:
             cmd = buf[0] # First entry is command
@@ -334,7 +428,7 @@ class arduinoSerial():
             return cmd, data
     
 
-    def send(self, cmd, data=[], delay=0.4, retries=10):
+    def send(self, cmd, data=[], delay=0.1, retries=ARD_RETRIES):
         """ Command is formatted and written to arduino serial port.
         Command syntax: <STX> <CMD CHAR> <DATA> <NULL> <ETX>
         """
@@ -346,31 +440,29 @@ class arduinoSerial():
         for i in range(retries):
             # Send command         
             self.ser.write(s)
-            time.sleep(0.2) ### THIS IS CRAZY, without this delay it breaks...
+            #time.sleep(0.2) ### THIS IS CRAZY, without this delay it breaks...
             
-            self.debugRow = 'arduinoSerial:: Sent_Cmd: ' + cmd
-            self.debugRow = self.debugRow + ' || Received: '
+            self.ardMsg = 'arduinoSerial:: Sent_Cmd: ' + cmd
+            self.ardMsg = self.ardMsg + ' || Received: '
             
-            reply = self.read(delay)
+            reply = self.read(delay, cmd)
             
             if not reply: # Try again if no reply received
                 continue  
-            
-            ### Note no sequence byte or checksum implemented
-            
-            if DEBUG: # Return and do nothing with reply
-                print '======================='
-                print ''                    
-                return 
-            else: # Format reply and return
-                rCmd, rData = reply
-                # Let the user know what happened, no error handling
-                self.debugRow = self.debugRow + rCmd+'_'+':'.join(rData)
-                self.dbF.writerow([self.debugRow])
-                print self.debugRow
-                
-                return reply
+            else:
+                break
+                 
+        ### Note no sequence byte or checksum implemented
+        # Format reply and return
+        rCmd, rData = reply
+        # Let the user know what happened, no error handling
+        self.ardMsg = self.ardMsg + rCmd+'_'+':'.join(rData)
+        self.dbF.writerow([self.ardMsg])
+        if DEBUG: print self.ardMsg
         
+        return reply
+    
+
         
 class controller():
     """
@@ -382,8 +474,8 @@ class controller():
     def __init__(self, debugLogPath, dataLogPath, recipePath, ports):
         
         # Initial set up
-        self.ts = str(time.time())[2:-3] # Repeats at about 100 weeks
-        print 'Timestamp: ', self.ts  ### Take this out later
+        ts = str(time.time())[2:-3] # Repeats at about 100 weeks
+        print 'Timestamp: ', ts  ### Take this out later
         dtLP = dataLogPath + '.csv' #'_' + ts + '.csv'
         dbLP = debugLogPath + '.csv' #'_' + ts + '.csv'
         
@@ -394,40 +486,46 @@ class controller():
         self.debugLogFile = open(dbLP, 'wb')
         self.dbF = csv.writer(self.debugLogFile, delimiter=',', 
                                     escapechar='{', quoting=csv.QUOTE_NONE)
-
         self.recipePath = recipePath
         self.step = []*8 
+        self.t0 = time.time() # Time the run starts
         
         # Open communications
-        self.sp = spSerial(ports[0], self.dbF)
-        self.tc = tcSerial(ports[1], self.dbF)
-        self.ard = arduinoSerial(ports[2], self.dbF)
+        if ports[0]:
+            self.sp = spSerial(ports[0], self.dbF)
+        if ports[1]:
+            self.tc = tcSerial(ports[1], self.dbF)
+        if ports[2]:
+            self.ard = arduinoSerial(ports[2], self.dbF)
         
         #### Any initial parameters for the run
         runParams = [
                      'temp=',
                       ]
-        ### Any parameters for logging         
-        headers = [ 
-                  'Time_Stamp',
-                  'SP_Temp',
-                  'SP_SetPoint',
-                  'HS_Temp',
-                  'Ard_Temp',
-                  'TC_Effort',
-                  'Syg_Vol_Pumped',
-                  'Air_Pump_Effort',
-                  'Fan_Effort',
+        # Logging parameters        
+        self.headers = [ 
+                  'Time(s)',
+                  'SP_Temp(C)',
+                  'SP_SetPoint(C)',
+                  'HS_Temp(C)',
+                  'TC_Effort(%)',
+                  'Alarm_State',
+                  'Ard_Temp(C)',
+                  'Fan_Effort(%)',
+                  'Pump_Effort(%)',
+                  'Volume_Infused',
+                  'Volume_Withdrawn',
+                  'Volume_Units'
                   ]
         
         # Write initial comments
         self.dtF.writerow(runParams)
-        self.dtF.writerow(headers)
-        self.dataLogFile.flush() 
+        self.dtF.writerow(self.headers)
+        self.dataLogFile.flush()
         self.dbF.writerow(['Debug log path: ' + dbLP])
         self.dbF.writerow(['Data log path: ' + dtLP])
         self.dbF.writerow(['Recipe path: ' + self.recipePath])
-        self.debugLogFile.flush()      
+        self.debugLogFile.flush()
 
     def getSeconds(self, s):
         """ Convert stings of this format to seconds.
@@ -444,40 +542,129 @@ class controller():
             if 's' in i: duration = duration + int(i.split('s')[0])
                 
         return duration
+    
+    def quit(self):
+        """ Exit controller in a sensible way.
+        """
+        
+        # Close serial connections
+        self.sp.closeSer()
+        self.tc.closeSer()
+        self.ard.closeSer()
+        
+        # Say good bye
+        endMsg = 'controller:: Signing Off!'
+        print endMsg
+        self.dbF.writerow([endMsg]) 
+        
+        # Close log files
+        self.dataLogFile.close()
+        self.debugLogFile.close()
 
-    def executeStep(self):
+    
+    def log(self, delay, rate=LOG_RATE):
+        """ Description: Log data for sleep duration
+        Input: datalogFile for writing 
+        Outputs: populated datalog
+        """
+        
+        for i in range(delay/rate):
+
+            row = []
+
+            # Log time
+            row.append(int(time.time() - self.t0))
+            
+            # Log spreader plate temperature (C)
+            spTemp = self.tc.send('01')
+            row.append(self.tc.formatResponse(spTemp))
+            
+            # Log spreader plate set point temperature (C)
+            setPoint = self.tc.send('03')
+            row.append(self.tc.formatResponse(setPoint))
+            
+            # Log heatsink temp (C)
+            hsTemp = self.tc.send('06')
+            row.append(self.tc.formatResponse(hsTemp))
+
+            # Log TC effort (%)
+            tcEffort = self.tc.send('04')
+            tcEffort = self.tc.formatResponse(tcEffort)
+            row.append(tcEffort*100)
+            
+            # Log Alarm state
+            ### Potentially could do something with this information
+            ### Could call pause function for error states
+            alarm = self.tc.send('05')
+            alarm = bin(int(alarm[:-2],16))[2:]
+            alarm = (8-len(alarm))*'0'+ alarm
+            row.append(str(' '+alarm+' '))
+
+            # Arduino thermistor temperature (C), fan and pump effort (%)
+            r = self.ard.send('Q', delay=ARD_DELAY_QRY)
+            row.append('-')  ### Thermistor not yet implemented
+            row.append(round(100*int(r[1][0])/255.0,2)) # Fan % effort
+            row.append(round(100*int(r[1][1])/255.0,2)) # Pump % effort
+            
+            # Syringe pump vol infuse, vol withdrawn, vol units
+            r = self.sp.dispensed()
+            row.append(r[0]) # Infused
+            row.append(r[1]) # Withdrawn
+            row.append(r[2]) # Units
+            
+            # Write and flush rows in case of hang up
+            if DEBUG: print row
+            self.dtF.writerow(row)
+            self.dataLogFile.flush()
+            self.debugLogFile.flush() 
+            
+            # Sleep for rate
+            time.sleep(rate)
+                  
+                  
+    def pause(self):
+        """ A simple pause function that requires user to resume.
+        """
+        
+        print "Press Enter to continue..."
+        waiting = True
+        
+        while waiting:
+            if msvcrt.getch() == '\r': waiting = False
+
+
+    def executeStep(self, step):
         """ Description: Executes steps for a single row
         Input: self.stepVars
         Output: commands to ard, sp, tc, delay / user resume
         """
         
+        ### Arduino delay may screw up logging
         # Set Pump Effort
-        self.ard.send('P', data=[str(int(255*self.step[4]/100.0))], delay=3)
+        self.ard.send('P', data=[str(int(255*step[4]/100.0))],
+                      delay=ARD_DELAY_CMD)
         # Set Fan Effort
-        self.ard.send('F', data=[str(int(255*self.step[3]/100.0))], delay=3)            
+        self.ard.send('F', data=[str(int(255*step[3]/100.0))],
+                      delay=ARD_DELAY_CMD)
+                    
         # Set TC set point
-        self.tc.send('1c', data=self.tc.formatData(float(self.step[2])))
-        
-        # Enable or disable TC
-        if self.step[1] == 'Y':
-            self.tc.send('2d', data=self.tcformatData(1)) # Turn on TC
+        self.tc.send('1c', data=self.tc.formatData(float(step[2])))
+        # Enable or disable TCi
+        if step[1] == 'Y':
+            self.tc.send('2d', data=self.tc.formatData(1)) # TC on
         else:
-            self.tc.send('2d', data=self.tcformatData(0)) # Turn off TC
+            self.tc.send('2d', data=self.tc.formatData(0)) # TC off
         
         # Send SP volume and rate if volume != 0
-        if self.step[5] != 0:
-            self.sp.basicCommand(self.step[5], self.step[6])
+        if step[5] != 0:
+            self.sp.basicCommand(step[5], step[6])
         
         # Sleep (ideally this would be multi-threaded or something)
-        time.sleep(self.getSeconds(self.step[0]))
+        self.log(self.getSeconds(step[0]))
         
         # Wait for user resume if required
-        if self.step[7] == 'Y':
-            print "Press Enter to continue..."
-            waiting = True
-            
-            while waiting:
-                if msvcrt.getch() == '\r': waiting = False
+        if step[7] == 'Y':
+            self.pause()
         
         
     def run(self):
@@ -489,89 +676,59 @@ class controller():
         recipeFile = open(self.recipePath, 'rb')
         recipe = csv.reader(recipeFile)
         firstLine = True
+        step = []*8 
         
-        # Dur(s), TC On, SP Temp, Fan%, AirPump%, SygVol, SygRate, User Resume
-        stepVars = [None]*8
+        self.t0 = time.time()
         
         # Read & execute recipe
-        ### Does not attempt to check for set point changes, just resends
+        ### Does not attempt to check for set points changes, just resends
         for row in recipe:
             
             if firstLine: # Skip header
                 firstLine = False
                 continue
             
-            # Read instructions
+            # Read instructions in this order:
+            # dur(s), tcOn, spTemp, Fan%, AirPump%, SygVol, SygRate, userResume
             for idx,item in enumerate(row):
                 if item[0] == '#': continue # Ignore comments
-                if item != self.step[idx]: self.step[idx] = item
+                if item != step[idx]: step[idx] = item
                 
             row = 'controller:: self.step: ' + ' '.join(self.step)
             self.dbF.writerow([row])
             
-            self.executeStep()
-                
-
-        
-        
-#         # Arduino Test here
-#         ### MINIMUM DELAY TO RAMP FROM 0-255 = 2.8 seconds
-#         self.ard.send('Q', delay=0.2)
-#         self.ard.send('F',data=[str(255)], delay=3)
-#         self.ard.send('Q', delay=0.2)
-#         self.ard.send('P',data=[str(255)], delay=3)
-#         self.ard.send('Q', delay=0.2)
-#         self.ard.send('F',data=[str(128)], delay=2)
-#         self.ard.send('Q', delay=0.2) 
-#         self.ard.send('P',data=[str(128)], delay=2)
-#         self.ard.send('Q', delay=0.2) 
-#         self.ard.send('F',data=[str(0)], delay=2)
-#         self.ard.send('Q', delay=0.2) 
-#         self.ard.send('P',data=[str(0)], delay=2)
-#         self.ard.send('Q', delay=0.2)                                  
-#         
-#         self.dataLogFile.close()
-#         self.debugLogFile.close()
-
-exampleSygPumpRecipe = [
-                 1, # Number of times commands are looped
-                 7.0, # Inner diameter of syringe
-                 
-                 # Pre-formated commands
-                 ['PHN 1', # Step 1
-                 'FUN RAT', # Not sure what this is for..
-                 'RAT 1000 UM', # Set pump rate in ul/min
-                 'VOL 1000', # Set volume in ul
-                 'DIR INF', # Set direction (infusion, depress syringe)
-                 'PHN 2', # Step 2 executes after step 1 completes
-                 'FUN RAT',
-                 'RAT 1000 UM',
-                 'VOL 1000',
-                 'DIR WDR',
-                 'PHN 3',
-                 'FUN STP',
-                 'RUN'] # Step 3 executes after step 1 completes
-                 ]
-
-recipePath = 'recipe.txt'
+            self.executeStep(step)
+            
+       
+        self.dataLogFile.close()
+        self.debugLogFile.close()
 
 if __name__ == '__main__':
-    # To change pump baud rate run "*ADR 0 B 9600" in Arduino serial monitor
-    # this change will last through reset, 9600 required to match with TC
-    
-    # Syringe Pump Commands 
-#     sp = spSerial(4, recipePath) # Port (4 = COM5), recipe, default BR = 9600
-#     sp.flushLine() # Call this command to remove air at the end of tube
-#     sp.runRecipe()
-
-    dbLP = "D:\\GitHub\\workspace\\A4_FreezeRay\\debugLog"
-    dtLP = "D:\\GitHub\\workspace\\A4_FreezeRay\\dataLog"
-    recipe = "D:\\GitHub\\workspace\\A4_FreezeRay\\recipe.txt"
-    ports = (6,7,5) # SygPump, TC, Arduino (4 = COM5 in Windows)
         
-    ctrlr = controller(dbLP,dtLP, recipe, ports)
-    ctrlr.run()
+    ctrlr = controller(dbLP, dtLP, recipe, ports)
+    
+    #ctrlr.log(20,1)  ## Current minimum rate = 6-7 seconds
+    
+    # Example steps and logging
+    # dur(s), tcOn, spTemp, Fan%, AirPump%, SygVol, SygRate, userResume
+    step1 = ['8s','N',25,0,0,0,0,'N', '# Comment']
+    ctrlr.executeStep(step1)
+    step2 = ['8s','Y',30,50,50,500,1900,'N','# Comment']
+    ctrlr.executeStep(step2)
+    step3 = ['8s','Y',-10.51,0,0,-500,1900,'N','# Comment']
+    ctrlr.executeStep(step3)
+    step4 = ['8s','Y',25,0,0,0,0,'N','# Comment']
+    ctrlr.executeStep(step3)
+    step4 = ['8s','N',25,0,0,0,0,'N','# Comment']
+    ctrlr.executeStep(step4)
+    
+    ctrlr.quit()
 
+#     # Arduino Test here
+#     ### MINIMUM DELAY TO RAMP FROM 0-255 = 2.8 seconds
+#     print ctrlr.ard.send('Q', delay=ARD_DELAY_QRY)
+#     print ctrlr.ard.send('F',data=[str(255)], delay=ARD_DELAY_CMD)
+#     print ctrlr.ard.send('Q', delay=ARD_DELAY_QRY)                            
 
 
 

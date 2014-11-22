@@ -1,13 +1,11 @@
 /*
-Created By: Andre Wild
-Created On: 2010.05.01
+Created By: Taylor Cooper
+Created On: 2014.10.20
 
 Last Modified By: Taylor Cooper
-Last Modified: 2014.05.01
+Last Modified: 2014.11.21
 
-Board: Arduino Mega ATmega128
-Typical COM port: /dev/ttyUSB0
-
+Board: Arduino Mega 2560 R3
 
 Functionality:
 

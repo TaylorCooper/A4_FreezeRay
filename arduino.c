@@ -73,8 +73,8 @@ const char cmds[NUM_CMDS] = {'F','P','Q'};
 
 // Create the motor shield object with the default I2C address
 Adafruit_MotorShield AFMS = Adafruit_MotorShield();
-Adafruit_DCMotor *fanM1 = AFMS.getMotor(1); // Fan motor pointer
-Adafruit_DCMotor *pumpM3 = AFMS.getMotor(3);  // Pump motor pointer
+Adafruit_DCMotor *fanM1 = AFMS.getMotor(4); // Fan motor pointer
+Adafruit_DCMotor *pumpM3 = AFMS.getMotor(1);  // Pump motor pointer
 
 // A struct for all the common data
 struct arduino_t {

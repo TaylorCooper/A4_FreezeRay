@@ -1,0 +1,835 @@
+NE-500  Syringe  pump  communication  established!
+spSerial::  Sent_Cmd:  *RESET  ||      ||    Received:00S
+spSerial::  Sent_Cmd:  DIA7.0  ||      ||    Received:00S
+TC-36-25_RS232  Temperature  controller  communication  established!
+Arduino  communication  established!  
+Estimated  pre-scale:  3.24  
+Final  pre-scale:  3  
+
+Debug  log  path:  D:\GitHub\workspace\A4_FreezeRay\20141125_M05_R02_E01_debuglog_16956729.csv
+Data  log  path:  D:\GitHub\workspace\A4_FreezeRay\20141125_M05_R02_E01_datalog_16956729.csv
+Recipe  path:  D:\GitHub\workspace\A4_FreezeRay\20141125_M05_R02_E01_recipe.csv
+arduinoSerial::  Sent_Cmd:  P  ||  Received:  P_255
+arduinoSerial::  Sent_Cmd:  F  ||  Received:  F_0
+tcSerial::  Sent_Cmd:  001c0000092e  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  001c0000092e  ||    Received:0000092ec0
+tcSerial::  Sent_Cmd:  002d00000000  ||    Received:0000000080
+spSerial::  Sent_Cmd:  DIR  INF  ||      ||    Received:00S
+spSerial::  Sent_Cmd:  RAT  1900  UM  ||      ||    Received:00S
+spSerial::  Sent_Cmd:  VOL  200  ||      ||    Received:00S
+spSerial::  Sent_Cmd:  RUN  ||      ||    Received:00I
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000095bc0
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000092ec0
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:000009f4c3
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_0:255:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00II13.67W0.000UL
+controller::  self.step:    |  1  |  Do  nothing  4s  |  4s  |  N  |  23.5  |  0  |  100  |  200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000095cc1
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000092ec0
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:000009f2c1
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_0:255:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00II93.35W0.000UL
+controller::  self.step:    |  1  |  Do  nothing  4s  |  4s  |  N  |  23.5  |  0  |  100  |  200  |  1900  |  N  |  This  is  a  comment
+arduinoSerial::  Sent_Cmd:  P  ||  Received:  P_0
+arduinoSerial::  Sent_Cmd:  F  ||  Received:  F_255
+tcSerial::  Sent_Cmd:  001c00000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  001c00000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  002d00000064  ||    Received:000000648a
+spSerial::  Sent_Cmd:  DIR  WDR  ||      ||    Received:00S
+spSerial::  Sent_Cmd:  RAT  1900  UM  ||      ||    Received:00S
+spSerial::  Sent_Cmd:  VOL  200  ||      ||    Received:00S
+spSerial::  Sent_Cmd:  RUN  ||      ||    Received:00W
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000009608f
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:000009f0bf
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000000b2b4
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00WI200.0W13.67UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000096291
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:000009f0bf
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00WI200.0W94.69UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000096291
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:000009f2c1
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00WI200.0W174.2UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000095cc1
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:000009faf0
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000094dc1
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000a07b8
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  No  reply!
+arduinoSerial::  Sent_Cmd:  Q  No  reply!
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000093591
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000a1be4
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000091cbd
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000a2ce6
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000009028b
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000a3fea
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000008e6c3
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000a4feb
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000008cbed
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000a62b9
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000008b0ba
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000a78c0
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000089596
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000a8cec
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000087bc1
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000a9dee
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000086290
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000ab1e4
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000084abd
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000ac3e7
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000008308b
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000ad4e9
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000081891
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000ae6ec
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000080088
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000af7ee
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000007eaed
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000b09bb
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000007d3be
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000b18bb
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000007bded
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000b27bb
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000007a9c1
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000b35ba
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000079494
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000b44ba
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000078190
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000b52b9
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000076cc0
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000b5eec
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000075894
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000b69c1
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000007448f
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000b75be
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000007328c
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000b7eee
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000071ebd
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000b89c3
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000070bb9
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000b93be
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000006faed
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000b9cee
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000006e8c3
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000ba9ec
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000006d7c1
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000bb3e7
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000006c5be
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000bbe19
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000006b5bd
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000bca16
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000006a5bc
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000bd4ea
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  No  reply!
+arduinoSerial::  Sent_Cmd:  Q  No  reply!
+arduinoSerial::  Sent_Cmd:  Q  No  reply!
+arduinoSerial::  Sent_Cmd:  Q  No  reply!
+arduinoSerial::  Sent_Cmd:  Q  No  reply!
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000068ec3
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000be1e8
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000067dc1
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000be6ed
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000066ec1
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000beb19
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000065ec0
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000bf0e8
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000006508b
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000bf9f1
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000006418b
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000bff1e
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000006328b
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c03b6
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000006248c
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c0be5
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000006158c
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c12b6
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  No  reply!
+arduinoSerial::  Sent_Cmd:  Q  No  reply!
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000006048a
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c15b9
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000005f7c2
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c19bd
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000005eaeb
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c21b6
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000005dded
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c23b8
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000005d0b9
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c26bb
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000005c5bd
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c27bc
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000005b6bd
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c28bd
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000005aae7
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c2ce8
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000059ec3
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c2eea
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000059290
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c32b8
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000058693
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c35bb
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000057dc0
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c39bf
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000056ec0
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c39bf
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  No  reply!
+arduinoSerial::  Sent_Cmd:  Q  No  reply!
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000005608b
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c35bb
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000005558f
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c38be
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000054aba
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c3be8
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000005418a
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c3eeb
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000005378f
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c40b7
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  No  reply!
+arduinoSerial::  Sent_Cmd:  Q  No  reply!
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000052bb9
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c40b7
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000052188
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c41b8
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000005168c
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c40b7
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000050db9
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c44bb
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000050287
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c45bc
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000004f8c2
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c46bd
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000004eeee
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c47be
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000004e5be
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c46bd
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000004dceb
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c4ae8
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000004d2ba
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c4cea
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000004c9c0
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c4eec
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000004c0b7
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c4eec
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000004b7bd
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c4deb
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000004aeea
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c50b8
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000004a6bb
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c50b8
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000049dc1
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c51b9
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000049390
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c4eec
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000048995
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c4fed
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000004818d
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c53bb
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000047bbd
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c55bd
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000004718c
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c56be
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000046993
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c51b9
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000004608a
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c50b8
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000045790
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c4fed
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000045089
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c50b8
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000044ab9
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c46bd
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:000004448c
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c42b9
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:000001ffed
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_255:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  2  |  Cool  10s  |  3m  |  Y  |  0  |  100  |  0  |  -200  |  1900  |  N  |  This  is  a  comment
+arduinoSerial::  Sent_Cmd:  P  ||  Received:  P_0
+arduinoSerial::  Sent_Cmd:  F  ||  Received:  F_0
+tcSerial::  Sent_Cmd:  001c0000092e  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  001c0000092e  ||    Received:0000092ec0
+tcSerial::  Sent_Cmd:  002d00000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000041db9
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000092ec0
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c4fed
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_0:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  3  |  Turn  off  4s  |  4s  |  N  |  23.5  |  0  |  0  |  0  |  0  |  N  |  This  is  a  comment
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000040084
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000092ec0
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000c54bc
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_0:0:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI200.0W200.0UL
+controller::  self.step:    |  3  |  Turn  off  4s  |  4s  |  N  |  23.5  |  0  |  0  |  0  |  0  |  N  |  This  is  a  comment
+controller::  Signing  Off!
+spSerial::  Sent_Cmd:  STP  ||      ||    Received:00S?NA
+spSerial::  Signing  Off!
+tcSerial::  Sent_Cmd:  002d00000000  ||    Received:0000000080
+tcSerial::  Signing  Off!
+arduinoSerial::  Sent_Cmd:  F  ||  Received:  F_0
+arduinoSerial::  Sent_Cmd:  P  ||  Received:  P_0
+arduinoSerial::  Signing  Off!

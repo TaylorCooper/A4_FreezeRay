@@ -1,0 +1,18 @@
+Date: 2014.11.21,,,,,,,,,,
+GizmoNum: M05,,,,,,,,,,
+RecipeNum: 0001,,,,,,,,,,
+ExperimentNum: 0001,,,,,,,,,,
+Observations:,,,,,,,,,,
+,,This,,,,,,,,
+,,is,,,,,,,,
+,,my,,,,,,,,
+,,only ,,,,,,,,
+,,observation,,,,,,,,
+,,about,,,,,,,,
+,,this,,,,,,,,
+,,experiment,,,,,,,,
+,,yay!,,,,,,,,
+Step Number,Step Description,Duration (xxh-xxm-xxs),TC On (Y/N),SP Temp Set Point (C°),Fan Effort (%),Air Pump Effort (%),Syg Pump Vol (uL),Syg Pump Rate (uL/min),User Resume (Y/N),Comments
+1,Do nothing 4s,4s,N,23.5,0,100,200,1900,N,This is a comment
+2,Cool 10s,3m,Y,0,100,0,-200,1900,N,This is a comment
+3,Turn off 4s,4s,N,23.5,0,0,0,0,N,This is a comment

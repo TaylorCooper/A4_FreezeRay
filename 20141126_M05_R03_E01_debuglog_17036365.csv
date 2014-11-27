@@ -1,0 +1,33 @@
+NE-500  Syringe  pump  communication  established!
+spSerial::  Sent_Cmd:  *RESET  ||      ||    Received:00S
+spSerial::  Sent_Cmd:  DIA7.0  ||      ||    Received:00S
+TC-36-25_RS232  Temperature  controller  communication  established!
+Arduino  communication  established!  
+Estimated  pre-scale:  3.24  
+Final  pre-scale:  3  
+
+Debug  log  path:  D:\GitHub\workspace\A4_FreezeRay\20141126_M05_R03_E01_debuglog_17036365.csv
+Data  log  path:  D:\GitHub\workspace\A4_FreezeRay\20141126_M05_R03_E01_datalog_17036365.csv
+Recipe  path:  D:\GitHub\workspace\A4_FreezeRay\20141126_M05_R03_E01_recipe.csv
+arduinoSerial::  Sent_Cmd:  P  ||  Received:  P_255
+arduinoSerial::  Sent_Cmd:  F  ||  Received:  F_0
+tcSerial::  Sent_Cmd:  001c0000092e  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  001c0000092e  ||    Received:0000092ec0
+tcSerial::  Sent_Cmd:  002d00000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000001bb3
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000092ec0
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000b9ff1
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_0:255:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI0.000W0.000UL
+controller::  self.step:    |  1  |  Do  nothing  4s  |  4s  |  N  |  23.5  |  0  |  100  |  0  |  1900  |  N  |  Start
+tcSerial::  Sent_Cmd:  000100000000  ||    Received:0000000bb2
+tcSerial::  Sent_Cmd:  000300000000  ||    Received:0000092ec0
+tcSerial::  Sent_Cmd:  000600000000  ||    Received:00000ba9ec
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:No  reply!
+tcSerial::  Sent_Cmd:  000400000000  ||    Received:0000000080
+tcSerial::  Sent_Cmd:  000500000000  ||    Received:0000000080
+arduinoSerial::  Sent_Cmd:  Q  ||  Received:  Q_0:255:-30000
+spSerial::  Sent_Cmd:  DIS  ||      ||    Received:00SI0.000W0.000UL
+controller::  self.step:    |  1  |  Do  nothing  4s  |  4s  |  N  |  23.5  |  0  |  100  |  0  |  1900  |  N  |  Start

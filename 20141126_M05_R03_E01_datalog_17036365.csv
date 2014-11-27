@@ -1,0 +1,9 @@
+Date:  2014.11.21,,,,,,,,,,
+GizmoNum:  M05,,,,,,,,,,
+RecipeNum:  0001,,,,,,,,,,
+ExperimentNum:  0001,,,,,,,,,,
+Observations:,,,,,,,,,,
+,,Early  device  debugging,,,,,,,,
+Step  Number,Step  Description,Time(s),SP_Temp(C),SP_SetPoint(C),HS_Temp(C),TC_Effort(%),Alarm_State,Ard_Temp(C),Fan_Effort(%),Pump_Effort(%),Volume_Infused,Volume_Withdrawn,Volume_Units
+1,Do  nothing  4s,6,0.27,23.5,29.75,0.0,0.0.0.0.0.0.0.0,-,0.0,100.0,0.0,0.0,UL,Start
+1,Do  nothing  4s,8,0.11,23.5,29.85,0.0,0.0.0.0.0.0.0.0,-,0.0,100.0,0.0,0.0,UL,Start

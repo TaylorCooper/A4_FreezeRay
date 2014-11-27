@@ -1,0 +1,8 @@
+Date: 2014.11.21,,,,,,,,,,
+GizmoNum: M05,,,,,,,,,,
+RecipeNum: 0001,,,,,,,,,,
+ExperimentNum: 0001,,,,,,,,,,
+Observations:,,,,,,,,,,
+,,Early device debugging,,,,,,,,
+Step Number,Step Description,Duration (xxh-xxm-xxs),TC On (Y/N),SP Temp Set Point (C°),Fan Effort (%),Air Pump Effort (%),Syg Pump Vol (uL),Syg Pump Rate (uL/min),User Resume (Y/N),Comments
+1,Do nothing 4s,1h,N,23.5,0,0,0,1900,N,Log stuff

@@ -1,0 +1,11 @@
+NE-500  Syringe  pump  communication  established!
+spSerial::  Sent_Cmd:  *RESET  ||      ||    Received:00S
+spSerial::  Sent_Cmd:  DIA7.0  ||      ||    Received:00S
+TC-36-25_RS232  Temperature  controller  communication  established!
+Arduino  communication  established!  
+Estimated  pre-scale:  3.24  
+Final  pre-scale:  3  
+
+Debug  log  path:  D:\GitHub\workspace\A4_FreezeRay\20141125_M05_R02_E01_debuglog_16956503.csv
+Data  log  path:  D:\GitHub\workspace\A4_FreezeRay\20141125_M05_R02_E01_datalog_16956503.csv
+Recipe  path:  D:\GitHub\workspace\A4_FreezeRay\20141125_M05_R02_E01_recipe.csv

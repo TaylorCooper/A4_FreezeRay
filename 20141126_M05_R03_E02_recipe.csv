@@ -1,0 +1,12 @@
+Date: 2014.11.21,,,,,,,,,,
+GizmoNum: M05,,,,,,,,,,
+RecipeNum: 0001,,,,,,,,,,
+ExperimentNum: 0001,,,,,,,,,,
+Observations:,,,,,,,,,,
+,,Early device debugging,,,,,,,,
+Step Number,Step Description,Duration (xxh-xxm-xxs),TC On (Y/N),SP Temp Set Point (C°),Fan Effort (%),Air Pump Effort (%),Syg Pump Vol (uL),Syg Pump Rate (uL/min),User Resume (Y/N),Comments
+1,Do nothing 4s,4s,N,23.5,0,100,0,1900,N,Start
+2,Test Fluidics,1m,N,23.5,0,100,1000,1900,Y,Test fluidics for 1min
+2,Cool to Freeze,1h,Y,-10,100,0,1000,1900,N,Try to freeze for 1hr
+3,Cool down HS,30s,N,23.5,100,0,0,0,N,Just try to get everything back to non burning temperatures
+3,Turn off 4s,4s,N,23.5,0,0,0,0,N,Turn everything off

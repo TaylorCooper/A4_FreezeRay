@@ -25,24 +25,26 @@
 
 import serial, time, collections, csv, msvcrt
 
+# Logging files and recipe
+recipeName = "20141126_M05_R03_E01_recipe.csv"
+path = "D:\\GitHub\\workspace\\A4_FreezeRay\\"
+dbLP = path + recipeName.split('_recipe')[0] + '_debuglog'
+dtLP = path + recipeName.split('_recipe')[0] + '_datalog'
+recipe = path + recipeName
+LOG_RATE = 2 # Log data every X seconds by default, max rate ~=2
+    
 # DEBUG MODE FROM ARDUINO
-DEBUG = False
+DEBUG = True
 
 # Serial communication parameters, based on test run of 1000 logs
 SP_DELAY=0.05 
 TC_DELAY=0.05
 ARD_DELAY_CMD=3 ### Something should be done about this...
 ARD_DELAY_QRY=0.2
-SP_RETRIES=10
-TC_RETRIES=10
-ARD_RETRIES=20
+SP_RETRIES=15
+TC_RETRIES=15
+ARD_RETRIES=30
 
-# Logging files and recipe
-dbLP = "D:\\GitHub\\workspace\\A4_FreezeRay\\debugLog"
-dtLP = "D:\\GitHub\\workspace\\A4_FreezeRay\\dataLog"
-recipe = "D:\\GitHub\\workspace\\A4_FreezeRay\\recipe.csv"
-LOG_RATE = 1 # Log data every X seconds by default
-    
 # SygPump, TC, Arduino (4 = COM5 in Windows)
 # e.g. (None,None,'COM6') tries to open communication with Arduino on COM6 
 # ports = (None,None,'COM6')
@@ -116,7 +118,7 @@ class spSerial():
         
         # Send and receive cmd
         cmd = s + '\x0D' # Carriage return required
-        spMsg = 'spSerial:: Sent_Cmd: ' + s + ' ||  Received:'
+        spMsg = 'spSerial:: Sent_Cmd: ' + s + ' ||  '
         
         for i in range(retries):
             self.ser.write(cmd)
@@ -125,19 +127,19 @@ class spSerial():
             r = self.read()
             
             if not r: # Basically just check if you get a reply
-                self.dbF.writerow([self.spMsg+'Sent invalid checksum!'])
-                if DEBUG: print self.spMsg+'Sent invalid checksum!'
+                self.dbF.writerow([spMsg+'No reply!'])
+                if DEBUG: print spMsg+'No reply!'
                 continue
             
             if r[-1] != '\x03': # Make sure message finished
-                self.dbF.writerow([self.spMsg+'Did not receive ETX!'])
-                if DEBUG: print self.spMsg+'Did not receive ETX!'
+                self.dbF.writerow([spMsg+'Did not receive ETX!'])
+                if DEBUG: print spMsg+'Did not receive ETX!'
                 continue
             else:
                 break
         
         # Let the user know what happened, no error handling
-        row = spMsg + r
+        row = spMsg + ' ||  Received:' + r
         self.dbF.writerow([row])
         if DEBUG: print row
         
@@ -476,18 +478,17 @@ class controller():
         # Initial set up
         ts = str(time.time())[2:-3] # Repeats at about 100 weeks
         print 'Timestamp: ', ts  ### Take this out later
-        dtLP = dataLogPath + '.csv' #'_' + ts + '.csv'
-        dbLP = debugLogPath + '.csv' #'_' + ts + '.csv'
+        dtLP = dataLogPath + '_' + ts + '.csv'
+        dbLP = debugLogPath + '_' + ts + '.csv'
         
         # Allocate class variables 
         self.dataLogFile = open(dtLP, 'wb')
         self.dtF = csv.writer(self.dataLogFile, delimiter=',', 
-                                    escapechar='{', quoting=csv.QUOTE_NONE)
+                                    escapechar=' ', quoting=csv.QUOTE_NONE)
         self.debugLogFile = open(dbLP, 'wb')
         self.dbF = csv.writer(self.debugLogFile, delimiter=',', 
-                                    escapechar='{', quoting=csv.QUOTE_NONE)
+                                    escapechar=' ', quoting=csv.QUOTE_NONE)
         self.recipePath = recipePath
-        self.step = []*8 
         self.t0 = time.time() # Time the run starts
         
         # Open communications
@@ -498,12 +499,10 @@ class controller():
         if ports[2]:
             self.ard = arduinoSerial(ports[2], self.dbF)
         
-        #### Any initial parameters for the run
-        runParams = [
-                     'temp=',
-                      ]
         # Logging parameters        
         self.headers = [ 
+                  'Step Number',
+                  'Step Description',
                   'Time(s)',
                   'SP_Temp(C)',
                   'SP_SetPoint(C)',
@@ -519,8 +518,6 @@ class controller():
                   ]
         
         # Write initial comments
-        self.dtF.writerow(runParams)
-        self.dtF.writerow(self.headers)
         self.dataLogFile.flush()
         self.dbF.writerow(['Debug log path: ' + dbLP])
         self.dbF.writerow(['Data log path: ' + dtLP])
@@ -547,30 +544,36 @@ class controller():
         """ Exit controller in a sensible way.
         """
         
-        # Close serial connections
-        self.sp.closeSer()
-        self.tc.closeSer()
-        self.ard.closeSer()
-        
         # Say good bye
         endMsg = 'controller:: Signing Off!'
         print endMsg
         self.dbF.writerow([endMsg]) 
+        
+        # Close serial connections
+        self.sp.closeSer()
+        self.tc.closeSer()
+        self.ard.closeSer()
         
         # Close log files
         self.dataLogFile.close()
         self.debugLogFile.close()
 
     
-    def log(self, delay, rate=LOG_RATE):
+    def log(self, delay, step, rate=LOG_RATE):
         """ Description: Log data for sleep duration
         Input: datalogFile for writing 
         Outputs: populated datalog
         """
         
+        self.dtF.writerow(self.headers)
+
         for i in range(delay/rate):
 
             row = []
+
+            # Step and description
+            row.append(step[0]) # Number
+            row.append(step[1]) # Description
 
             # Log time
             row.append(int(time.time() - self.t0))
@@ -598,7 +601,9 @@ class controller():
             alarm = self.tc.send('05')
             alarm = bin(int(alarm[:-2],16))[2:]
             alarm = (8-len(alarm))*'0'+ alarm
-            row.append(str(' '+alarm+' '))
+            r = ''
+            for i in alarm: r = r + i + '.'
+            row.append(str(r[:-1]))
 
             # Arduino thermistor temperature (C), fan and pump effort (%)
             r = self.ard.send('Q', delay=ARD_DELAY_QRY)
@@ -612,9 +617,20 @@ class controller():
             row.append(r[1]) # Withdrawn
             row.append(r[2]) # Units
             
-            # Write and flush rows in case of hang up
-            if DEBUG: print row
+            # Add recipe comment to row, assuming comment in last column
+            row.append(step[-1]) 
+            
+            # Populate data and debug logs
             self.dtF.writerow(row)
+            debugMsg = 'controller:: self.step: '
+            for i in step:
+                debugMsg = debugMsg + ' | ' + str(i)
+            self.dbF.writerow([debugMsg])
+            if DEBUG: 
+                print row
+                print debugMsg
+            
+            # Flush buffers in case of crash
             self.dataLogFile.flush()
             self.debugLogFile.flush() 
             
@@ -641,29 +657,29 @@ class controller():
         
         ### Arduino delay may screw up logging
         # Set Pump Effort
-        self.ard.send('P', data=[str(int(255*step[4]/100.0))],
+        self.ard.send('P', data=[str(int(255*int(step[6])/100.0))],
                       delay=ARD_DELAY_CMD)
         # Set Fan Effort
-        self.ard.send('F', data=[str(int(255*step[3]/100.0))],
+        self.ard.send('F', data=[str(int(255*int(step[5])/100.0))],
                       delay=ARD_DELAY_CMD)
                     
         # Set TC set point
-        self.tc.send('1c', data=self.tc.formatData(float(step[2])))
+        self.tc.send('1c', data=self.tc.formatData(float(step[4])))
         # Enable or disable TCi
-        if step[1] == 'Y':
+        if step[3] == 'Y':
             self.tc.send('2d', data=self.tc.formatData(1)) # TC on
         else:
             self.tc.send('2d', data=self.tc.formatData(0)) # TC off
         
         # Send SP volume and rate if volume != 0
-        if step[5] != 0:
-            self.sp.basicCommand(step[5], step[6])
+        if step[7] != 0:
+            self.sp.basicCommand(int(step[7]), int(step[8]))
         
         # Sleep (ideally this would be multi-threaded or something)
-        self.log(self.getSeconds(step[0]))
+        self.log(self.getSeconds(step[2]), step)
         
         # Wait for user resume if required
-        if step[7] == 'Y':
+        if step[9] == 'Y':
             self.pause()
         
         
@@ -675,60 +691,62 @@ class controller():
         
         recipeFile = open(self.recipePath, 'rb')
         recipe = csv.reader(recipeFile)
-        firstLine = True
-        step = []*8 
+        firstLineFound = False
+        step = []
         
         self.t0 = time.time()
         
         # Read & execute recipe
         ### Does not attempt to check for set points changes, just resends
         for row in recipe:
-            
-            if firstLine: # Skip header
-                firstLine = False
+                        
+            # If header row found append it to datalog and continue
+            if 'Step Number' in row[0]:
+                firstLineFound = True # begin reading recipe
                 continue
             
-            # Read instructions in this order:
-            # dur(s), tcOn, spTemp, Fan%, AirPump%, SygVol, SygRate, userResume
-            for idx,item in enumerate(row):
-                if item[0] == '#': continue # Ignore comments
-                if item != step[idx]: step[idx] = item
-                
-            row = 'controller:: self.step: ' + ' '.join(self.step)
-            self.dbF.writerow([row])
+            # Append lines before header to datalog
+            if not firstLineFound:
+                self.dtF.writerow(row)
+                continue
             
-            self.executeStep(step)
+            print 'Executing step: ' + row[0] + '  ' + row[1]
+            
+            self.executeStep(row)
+            
+        ctrlr.quit()
             
        
-        self.dataLogFile.close()
-        self.debugLogFile.close()
-
 if __name__ == '__main__':
         
     ctrlr = controller(dbLP, dtLP, recipe, ports)
-    
-    #ctrlr.log(20,1)  ## Current minimum rate = 6-7 seconds
-    
-    # Example steps and logging
-    # dur(s), tcOn, spTemp, Fan%, AirPump%, SygVol, SygRate, userResume
-    step1 = ['8s','N',25,0,0,0,0,'N', '# Comment']
-    ctrlr.executeStep(step1)
-    step2 = ['8s','Y',30,50,50,500,1900,'N','# Comment']
-    ctrlr.executeStep(step2)
-    step3 = ['8s','Y',-10.51,0,0,-500,1900,'N','# Comment']
-    ctrlr.executeStep(step3)
-    step4 = ['8s','Y',25,0,0,0,0,'N','# Comment']
-    ctrlr.executeStep(step3)
-    step4 = ['8s','N',25,0,0,0,0,'N','# Comment']
-    ctrlr.executeStep(step4)
-    
-    ctrlr.quit()
+
+    ctrlr.run()
 
 #     # Arduino Test here
 #     ### MINIMUM DELAY TO RAMP FROM 0-255 = 2.8 seconds
 #     print ctrlr.ard.send('Q', delay=ARD_DELAY_QRY)
 #     print ctrlr.ard.send('F',data=[str(255)], delay=ARD_DELAY_CMD)
-#     print ctrlr.ard.send('Q', delay=ARD_DELAY_QRY)                            
+#     print ctrlr.ard.send('Q', delay=ARD_DELAY_QRY)
+
+
+#     # Logging test
+#     ctrlr.log(20,1)  ## Current minimum rate = ~2 seconds
+
+
+#     # Execute Test here
+#     # 0step#, 1description, 2duration, 3TC on/off, 4spreader plate temperature,
+#     # 5Fan effort, 6Air Pump effort, 7SygVol, 8SygRate, 9userResume
+#     step1 = ['1','Desc','8s','N',25,0,0,0,0,'N', '# Comment']
+#     ctrlr.executeStep(step1)
+#     step2 = ['2','Desc','8s','Y',30,50,50,500,1900,'N','# Comment']
+#     ctrlr.executeStep(step2)
+#     step3 = ['3','Desc','8s','Y',-10.51,0,0,-500,1900,'N','# Comment']
+#     ctrlr.executeStep(step3)
+#     step4 = ['4','Desc','8s','Y',25,0,0,0,0,'N','# Comment']
+#     ctrlr.executeStep(step3)
+#     step4 = ['5','Desc','8s','N',25,0,0,0,0,'N','# Comment']
+#     ctrlr.executeStep(step4)                          
 
 
 

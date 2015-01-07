@@ -26,7 +26,7 @@
 import serial, time, collections, csv, msvcrt
 
 # Logging files and recipe
-recipeName = "20141126_M05_R03_E01_recipe.csv"
+recipeName = "20141127_M05_R04_E01_recipe.csv"
 path = "D:\\GitHub\\workspace\\A4_FreezeRay\\"
 dbLP = path + recipeName.split('_recipe')[0] + '_debuglog'
 dtLP = path + recipeName.split('_recipe')[0] + '_datalog'
@@ -34,11 +34,12 @@ recipe = path + recipeName
 LOG_RATE = 2 # Log data every X seconds by default, max rate ~=2
     
 # DEBUG MODE FROM ARDUINO
-DEBUG = True
+
+DEBUG = False
 
 # Serial communication parameters, based on test run of 1000 logs
-SP_DELAY=0.05 
-TC_DELAY=0.05
+SP_DELAY=0.10 
+TC_DELAY=0.10
 ARD_DELAY_CMD=3 ### Something should be done about this...
 ARD_DELAY_QRY=0.2
 SP_RETRIES=15
@@ -48,7 +49,7 @@ ARD_RETRIES=30
 # SygPump, TC, Arduino (4 = COM5 in Windows)
 # e.g. (None,None,'COM6') tries to open communication with Arduino on COM6 
 # ports = (None,None,'COM6')
-ports = ('COM5','COM7','COM6')
+ports = ('COM8','COM7','COM6')
 
 class spSerial():
     """
@@ -272,7 +273,6 @@ class tcSerial():
 
     def read(self, delay):
         """ Read chars from the serial port buffer well it is not empty.
-        Reply syntax: <STX> <CMD CHAR> <DATA1,DATA2,DATA3,etc.> <ACK>
         """
     
         buf = []
@@ -576,7 +576,9 @@ class controller():
             row.append(step[1]) # Description
 
             # Log time
-            row.append(int(time.time() - self.t0))
+            t = int(time.time() - self.t0)
+            print '==========   ' + str(t) + '   =========='
+            row.append(t)
             
             # Log spreader plate temperature (C)
             spTemp = self.tc.send('01')
@@ -629,6 +631,10 @@ class controller():
             if DEBUG: 
                 print row
                 print debugMsg
+            else:
+                print 'TC temper (C):  ' + str(row[3])
+                print 'Set point (C):  ' + str(row[4])
+                print 'HS temper (C):  ' + str(row[5])
             
             # Flush buffers in case of crash
             self.dataLogFile.flush()
@@ -636,7 +642,7 @@ class controller():
             
             # Sleep for rate
             time.sleep(rate)
-                  
+
                   
     def pause(self):
         """ A simple pause function that requires user to resume.
@@ -727,6 +733,7 @@ if __name__ == '__main__':
 #     ### MINIMUM DELAY TO RAMP FROM 0-255 = 2.8 seconds
 #     print ctrlr.ard.send('Q', delay=ARD_DELAY_QRY)
 #     print ctrlr.ard.send('F',data=[str(255)], delay=ARD_DELAY_CMD)
+#     print ctrlr.ard.send('P',data=[str(255)], delay=ARD_DELAY_CMD)
 #     print ctrlr.ard.send('Q', delay=ARD_DELAY_QRY)
 
 

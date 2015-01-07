@@ -1,0 +1,11 @@
+Date: 2014.11.27,,,,,,,,,,
+GizmoNum: None,,,,,,,,,,
+RecipeNum: 0004,,,,,,,,,,
+ExperimentNum: 0001_Calibration,,,,,,,,,,
+Notes/Observations:,,,,,,,,,,
+,,Generating calibration curve for spreader plate thermistor,,,,,,,,
+Step Number,Step Description,Duration (xxh-xxm-xxs),TC On (Y/N),SP Temp Set Point (C°),Fan Effort (%),Air Pump Effort (%),Syg Pump Vol (uL),Syg Pump Rate (uL/min),User Resume (Y/N),Comments
+1,step3,4s,N,23.5,0,0,0,1900,N,End
+2,step1,1min,Y,23.5,100,50,-500,1900,N,Start
+3,step2,1min,Y,0,100,0,500,1900,N,Datapoint
+4,step3,4s,N,23.5,0,0,0,1900,N,End

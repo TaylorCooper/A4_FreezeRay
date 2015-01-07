@@ -88,7 +88,7 @@ struct arduino_t {
   };
 
 static arduino_t ard= {
-  0, // current fan speed = off
+  0, // current fan speed = 100% on
   0, // new fan speed = off
   0, // current pump speed = off
   0, // new pump speed = off
@@ -112,6 +112,8 @@ void setup(){
 	  pumpM3->setSpeed(0); // Set initial speed
 	  pumpM3->run(FORWARD); // Set initial direction
 	  pumpM3->run(RELEASE); // Turn motor on
+
+
 }
 
 
